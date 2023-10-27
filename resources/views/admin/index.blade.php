@@ -31,12 +31,8 @@
 					</div>
 	  
 					<div class="navbar-collapse collapse" id="mobile_menu">
-						<ul class="nav navbar-nav">
-							
+						<ul class="nav navbar-nav">	
 						  <li><a href="javascript:void(0)"  onclick="alert('Vous êtes sur la même page!')">Dashboard</a></li>
-						  {{-- <li><a href="{{ Route('prof.index') }}" >Propositions</a></li>
-						   <li><a href="{{ Route('prof.demande') }}">Demande</a></li> --}}
-							
 						</ul>
 					   
 	  
@@ -112,17 +108,8 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							 {{-- <th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-							</th>  --}}
 							<th>Nom</th>
 							<th>Prénom</th>
-							{{-- <th>CNE</th>
-							<th>APOGEE</th>
-							<th>Annee Scolaire</th> --}}
 							<th>Etablissement</th>
 							<th>Email</th>
 							<th>Departement / Filière </th>
@@ -133,12 +120,6 @@
 					<tbody id="tableDetails" >
 						<tr>
                             @foreach($etudiants as $etudiant )
-							{{--<td>
-								 <span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td> --}}
 							<td>{{ $etudiant->name }}</td>
 							<td>{{ $etudiant->prenom }}</td>
 							<td>{{ $etudiant->unv }}</td>

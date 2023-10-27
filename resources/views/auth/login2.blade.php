@@ -56,19 +56,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                {{-- <br>
-                                <h3> Or sign in with :</h3>
-                                <div class="google-icon-wrapper">
-                                   
-                                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-                                    <a href="{{ url('/redirect') }}" class="btn-text"> Google</a>
-                                </div> --}}
-                                
-                                {{-- @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif --}}
                                 <br>
                                 <h3> Or sign in with :</h3>
                                 <div class="google-icon-wrapper">

@@ -10,19 +10,19 @@ use Illuminate\Support\Facades\Auth;
 
 class DemandeController extends Controller
 {
-    
-    public function store_demande (Request $request)
+
+    public function store_demande(Request $request)
     {
-        
+
         $request->validate([
             'etudiant' => ['required', 'string', 'max:255'],
-            'apoge' => ['required', 'string','max:10'],
-            'titre_demande' => [ 'string','max:255'],
-            'etat' => ['required', 'string','max:10'],
-            'etat_prop' => ['required', 'string','max:10'],
-            'email' => ['required', 'string', 'email', 'max:255'],   
+            'apoge' => ['required', 'string', 'max:10'],
+            'titre_demande' => ['string', 'max:255'],
+            'etat' => ['required', 'string', 'max:10'],
+            'etat_prop' => ['required', 'string', 'max:10'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
-       
+
         $demandes = new Demandes();
         $demandes->user_id = auth::user()->id;
         $demandes->etat = $request->etat;
@@ -32,43 +32,34 @@ class DemandeController extends Controller
         $demandes->email = $request->email;
         $demandes->etat_prop = $request->etat_prop;
         $demandes->save();
-        
-      
+
+
         return redirect()->back()->with('success', '\'Votre demande a été envoyé!!');
-        
     }
 
-    public function update (Request $request)
+    public function update(Request $request)
     {
         $demandes = Demandes::find($request->id);
         $demandes->etat = $request->etat;
         $demandes->etat_prop = $request->etat_prop;
-         $demandes->message = $request->message;
+        $demandes->message = $request->message;
         $demandes->save();
-      
+
         return redirect()->back();
     }
 
-    
+
 
     public function show($id)
     {
         $value = Demandes::find($id);
-        return response()->json($value);  
+        return response()->json($value);
     }
-    
+
 
     public function afficher_demande()
-    {  
+    {
         $demandes = Demandes::all();
         return view('prof.demande', compact('demandes'));
-    
     }
-    
-    
-   
-
-
-    
 }
-

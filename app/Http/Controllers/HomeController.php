@@ -27,16 +27,14 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function GetStatus (){
-        $getetat=Demandes::select('etat')->first();
-         if($getetat->etat==1){
+    public function GetStatus()
+    {
+        $getetat = Demandes::select('etat')->first();
+        if ($getetat->etat == 1) {
             return redirect()->back()->with('success', '\'Votre demande a été accepteé!!');
-         }
-         if($getetat->etat==2){
+        }
+        if ($getetat->etat == 2) {
             return redirect()->back()->with('success', '\'Votre demande a été refuseé!!');
-         }
-         
-        
-        
-    } 
+        }
+    }
 }

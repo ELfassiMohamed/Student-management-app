@@ -87,29 +87,18 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							 {{-- <th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-							</th>  --}}
-							{{-- <th>id</th> --}}
 							<th>Etudint</th>
               <th>Proposition</th>
 							<th>Apogee</th>	
               <th>E-mail</th>
               <th>Statut</th>	
               <th>Action</th>	
-             				
-
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
                         
               @foreach($demandes as $demande )
-						
-              {{-- <td>{{ $demande->id }}</td> --}}
 							<td>{{ $demande->etudiant }}</td>
               <td>{{ $demande->titre_demande }}</td>
 							<td>{{ $demande->apoge }}</td>

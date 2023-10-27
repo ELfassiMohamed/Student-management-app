@@ -67,24 +67,6 @@
     
     
     <div class="box">
- <!------Message---->
- {{-- <div class="col-lg-5 col-md-5 col-sm-5 col-md-offset-3">
-  <div class="contact_form">
-    <div id="form-messages1"></div>
-    @foreach($errors->all(':message') as $message)
-      <div id="form-messages" class="alert alert-danger" role="alert">
-        {{ $message }}
-      </div>
-    @endforeach()
-    
-@if(session('success'))
-<div class="alert alert-info">
-{{ session('success') }}
-</div>
-@endif
-    
-</div>
-</div> --}}
 <div class="container">
   <h1 style="margin-top:30px;margin-bottom: 30px;">Gestion des Propositions</h1>
 <div class="table-responsive">
@@ -143,9 +125,7 @@
       @endif
       @endforeach
     </div>
-    {{-- <div class="d-flex justify-content-center"  style="margin-bottom: 100px;">
-                {{ $users->links() }}
-      </div> --}}
+    
 </div>
       
            

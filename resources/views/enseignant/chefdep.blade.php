@@ -18,26 +18,6 @@
 
 </head>
 <body>
-   {{-- <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<div class="container-fluid">
-		  <div class="navbar-header">
-			<a class="navbar-brand" >Chef Departement</a>
-		  </div>
-		  <ul class="nav navbar-nav">
-			<li class="active">
-				<a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();
-							document.getElementById('logout-form').submit();">
-												<i class="material-icons">&#xe9ba;</i>{{ __('Logout') }}
-											</a>
-
-											<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-												@csrf  
-											</form>
-					</li>	
-		  </ul>
-		</div>
-	  </nav>   --}}
-	 	<!----- nav bar -------->
 		 <div class="navbar navbar-inverse" style="background-color: #435d7d;>
 			<div class="container-fluid">
 				<div class="row">
@@ -53,22 +33,9 @@
 								
 								<li><a href="#">Utilisatuers</a></li>
 								<li><a href="{{ Route('enseignant.props') }}">Propositions</a></li>
-								<!-- <li><a href="#">Gallery</a></li>
-								<li><a href="#">Contact Us</a></li> -->
+								
 							</ul>
-							<!-- <ul class="nav navbar-nav">
-								<li>
-									<form action="" class="navbar-form">
-										<div class="form-group">
-											<div class="input-group">
-												<input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
-												<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-											</div>
-										</div>
-									</form>
-								</li>
-							</ul> -->
-	
+
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="{{Route('enseignant.editer')}}"><span class="glyphicon glyphicon-user"></span>Profile : {{Auth::user()->name}}</a></li>
 								<li><a href="{{ route('logout') }}"onclick="event.preventDefault();
@@ -76,10 +43,7 @@
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 									@csrf  
 								</form>
-									<!-- <ul class="dropdown-menu">
-										<li><a href="#">Log out</a></li>
-										
-									</ul> -->
+									
 								</li>
 							</ul>
 						</div>

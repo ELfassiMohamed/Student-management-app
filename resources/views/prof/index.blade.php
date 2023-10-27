@@ -87,12 +87,6 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							 {{-- <th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-							</th>  --}}
 							<th>Titre</th>
 							<th>Cycle</th>
               <th>Departement/Filiere</th>					
@@ -103,13 +97,6 @@
 					</thead>
 					<tbody>
 						<tr>
-                            {{-- @foreach --}}
-							{{--<td>
-								 <span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td> --}}
               @foreach($props as $value )
 							<td>{{ $value->titre }}</td>
 							<td>{{ $value->cycle }}</td>
@@ -195,7 +182,7 @@
 
 						<div class="form-group">
 							<label>Description</label>
-                             {{-- <input type="text" class="form-control" name="description"  >  --}}
+                             
                             <textarea class="form-control" name="description"rows="3"></textarea>
                        </div>
 							

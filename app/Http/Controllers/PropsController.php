@@ -12,49 +12,44 @@ use Illuminate\Support\Facades\Hash;
 
 class PropsController extends Controller
 {
-    public function show (){
+    public function show()
+    {
         $users = User::all();
-        $props= Propositions::all();
-        return view('enseignant.props',compact('props', 'users'));  
-        
+        $props = Propositions::all();
+        return view('enseignant.props', compact('props', 'users'));
     }
 
-    public function update (Request $request)
+    public function update(Request $request)
     {
         $demandes = Demandes::find($request->id);
         $demandes->etat = $request->etat;
         $demandes->save();
-      
+
         return redirect()->back();
     }
 
-    public function showw ($id)
-    {  
+    public function showw($id)
+    {
         $aaa = Demandes::find($id);
-        return response()->json($aaa); 
+        return response()->json($aaa);
     }
 
 
-    public function show_prof (){
+    public function show_prof()
+    {
 
         $user = Auth::user();
 
         return view('prof.profile')->with('user', $user);
-}
+    }
 
 
-    public function update_prof(Request $request, $id){
+    public function update_prof(Request $request, $id)
+    {
 
         $user = User::find($id);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->back()->with('status',' Updated Successfully');}
-
-
-
-
-
-
-
-
+        return redirect()->back()->with('status', ' Updated Successfully');
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator,Redirect,Response,File;
+use Validator, Redirect, Response, File;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -16,49 +16,32 @@ class SocialiteController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-    
+
     public function callback()
     {
-         
-                //  $user = Socialite::driver('google')->stateless()->user();
-                //  $user = User::where('google_id', $user->id)->first();
-    
-                //  if($user){
-                //      Auth::login($user);
-                //      return redirect('/home');
-                //  }else{
-                //      $newUser = User::create([
-                //          'name' => $user->name,
-                //         'email' => $user->email,
-                //         'google_id'=> $user->id,
-                        
-                //      ]);
-                //     Auth::login($newUser);
-                //     return redirect('/home');
-                //  }
-                $user = Socialite::driver('google')->stateless()->user();
 
-                $this->_registerOrLoginUser($user);
-        
-                // Return home after login
-                return redirect()->route('home');
-            }
-            protected function _registerOrLoginUser($data)
-            {
-                $user = User::where('email', '=', $data->email)->first();
-                if (!$user) {
-                    $user = new User();
-                    $user->name = $data->name;
-                    $user->email = $data->email;
-                    $user->google_id = $data->id;
-                    $user->password = Hash::make($data->name. '_2021');
-                
-                    
-                    $user->save();
-                }
-        
-                Auth::login($user);
-            } 
-       
-    
+
+        $user = Socialite::driver('google')->stateless()->user();
+
+        $this->_registerOrLoginUser($user);
+
+        // Return home after login
+        return redirect()->route('home');
+    }
+    protected function _registerOrLoginUser($data)
+    {
+        $user = User::where('email', '=', $data->email)->first();
+        if (!$user) {
+            $user = new User();
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->google_id = $data->id;
+            $user->password = Hash::make($data->name . '_2021');
+
+
+            $user->save();
+        }
+
+        Auth::login($user);
+    }
 }

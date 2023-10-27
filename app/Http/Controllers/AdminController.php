@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         $etudiants = User::where('isAdmin', '!=', true)->paginate(5);
-        return view('admin.index',['etudiants' => $etudiants]);
+        return view('admin.index', ['etudiants' => $etudiants]);
     }
 
     /**
@@ -36,15 +36,15 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'cne' => ['required', 'string','max:10'],
-            'apoge' => ['required', 'string','max:10'],
-            
-            
+            'cne' => ['required', 'string', 'max:10'],
+            'apoge' => ['required', 'string', 'max:10'],
+
+
         ]);
         $user = new User();
         $user->name = $request->name;
@@ -72,7 +72,7 @@ class AdminController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return response()->json($user);  
+        return response()->json($user);
     }
 
     /**
@@ -93,21 +93,21 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request )
+    public function update(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'cne' => ['required', 'string','max:10'],
-            'apoge' => ['required', 'string','max:10'],
+            'cne' => ['required', 'string', 'max:10'],
+            'apoge' => ['required', 'string', 'max:10'],
 
         ]);
 
 
         $user = User::find($request->id);
 
-        if($user->email == $request->email){
+        if ($user->email == $request->email) {
             $user->name = $request->name;
             $user->prenom = $request->prenom;
             $user->cne = $request->cne;
@@ -117,9 +117,9 @@ class AdminController extends Controller
             $user->dept = $request->dept;
             $user->role = $request->role;
             $user->filiere = $request->filiere;
-        }else{
+        } else {
             $request->validate([
-                'email' => ['required', 'string', 'email', 'max:255','unique:users']
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
             ]);
             $user->name = $request->name;
             $user->prenom = $request->prenom;
@@ -131,9 +131,9 @@ class AdminController extends Controller
             $user->role = $request->role;
             $user->filiere = $request->filiere;
             $user->email = $request->email;
-        }   
+        }
 
-        
+
 
         $user->save();
 

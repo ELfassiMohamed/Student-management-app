@@ -8,18 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Propositions extends Model
 {
     use HasFactory;
-    protected $table='propositions';
+    protected $table = 'propositions';
     protected $fillable = [
-            'titre',
-            'filiere',
-            'cycle',
-            'type_props',
-            'description',
-   ];
+        'titre',
+        'filiere',
+        'cycle',
+        'type_props',
+        'description',
+    ];
     public function users()
-            {
-                return $this->belongsTo(User::class, 'user_id', 'id');
-            }
-
-            
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

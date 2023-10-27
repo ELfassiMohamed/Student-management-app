@@ -32,22 +32,8 @@
 							
 							<li><a href="{{ Route('enseignant.chefdep') }}">Utilisatuers</a></li>
 							<li><a href="{{ Route('enseignant.props') }}">Propositions</a></li>
-							<!-- <li><a href="#">Gallery</a></li>
-							<li><a href="#">Contact Us</a></li> -->
+							
 						</ul>
-						<!-- <ul class="nav navbar-nav">
-							<li>
-								<form action="" class="navbar-form">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
-											<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-										</div>
-									</div>
-								</form>
-							</li>
-						</ul> -->
-
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile : {{Auth::user()->name}}</a></li>
 							<li><a href="{{ route('logout') }}"onclick="event.preventDefault();
@@ -55,10 +41,6 @@
 							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 								@csrf  
 							</form>
-								<!-- <ul class="dropdown-menu">
-									<li><a href="#">Log out</a></li>
-									
-								</ul> -->
 							</li>
 						</ul>
 					</div>

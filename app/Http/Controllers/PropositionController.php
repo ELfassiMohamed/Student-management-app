@@ -17,10 +17,10 @@ class PropositionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-         
-         $props = Propositions::where('user_id', Auth::id())->get();
-        return view('prof.index',['props' => $props]);
+    {
+
+        $props = Propositions::where('user_id', Auth::id())->get();
+        return view('prof.index', ['props' => $props]);
 
 
         // $propositions = DB::table('propositions')->paginate(10);
@@ -34,7 +34,6 @@ class PropositionController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -44,17 +43,17 @@ class PropositionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
 
-        
+
         $request->validate([
             'titre' => ['required', 'string', 'max:255'],
             'filiere' => ['string', 'max:255'],
             'depart' => ['required', 'string', 'max:255'],
-            'cycle' => ['required', 'string','max:10'],
-            'statut' => ['required', 'string','max:10'],
-            'type_props' => ['required', 'string','max:10'],
-            'description' => ['required', 'string', 'max:255'],   
+            'cycle' => ['required', 'string', 'max:10'],
+            'statut' => ['required', 'string', 'max:10'],
+            'type_props' => ['required', 'string', 'max:10'],
+            'description' => ['required', 'string', 'max:255'],
         ]);
 
         $propositions = new Propositions();
@@ -66,7 +65,7 @@ class PropositionController extends Controller
         $propositions->cycle = $request->cycle;
         $propositions->type_props = $request->type_props;
         $propositions->description = $request->description;
-       
+
 
         $propositions->save();
         return redirect()->back();
@@ -79,9 +78,9 @@ class PropositionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {  
+    {
         $value = Demandes::find($id);
-        return response()->json($value); 
+        return response()->json($value);
     }
 
     /**
@@ -105,8 +104,8 @@ class PropositionController extends Controller
      */
     public function update(Request $request)
     {
-        
-      
+
+
         $propositions =  Propositions::find($request->id);
         $propositions->titre = $request->titre;
         $propositions->depart = $request->depart;
@@ -115,7 +114,7 @@ class PropositionController extends Controller
         $propositions->type_props = $request->type_props;
         $propositions->description = $request->description;
         $propositions->save();
-        return redirect()->back()->with('status','Student Updated Successfully');
+        return redirect()->back()->with('status', 'Student Updated Successfully');
     }
 
     /**

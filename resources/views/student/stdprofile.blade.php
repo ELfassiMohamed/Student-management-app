@@ -40,12 +40,6 @@
             </div>
         </div>
     </div>
- 
-         {{-- <div class=" col-sm-5 ">
-        @if (session('status'))
-        <h6 class="alert alert-success">{{ session('status') }}</h6>
-        @endif
-        </div>  --}}
 	 <div class="containeeer">
     
             <div class="card">
